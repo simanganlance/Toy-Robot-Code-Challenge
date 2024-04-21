@@ -1,8 +1,12 @@
 const { exec } = require('child_process');
+const os = require('os');
 
 describe('Integration Tests', () => {
     it('should run the application with NODE_ENV=test', (done) => {
-        const command = 'cd .. && NODE_ENV=test node app.js'; 
+        let command = 'cd .. && NODE_ENV=test node app.js'; 
+        if (os.platform() === 'win32') {
+            command = 'cd..&& set NODE_ENV=test&& node app.js';
+        }
         const app = exec(command, { env: process.env }, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error executing command: ${error}`);
