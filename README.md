@@ -33,8 +33,12 @@ node app.js
 
 To run with a specific environment, use:
 
-```
+```javascript
+// For macOS
 NODE_ENV={{environment name}} node app.js
+
+// For Windows
+set NODE_ENV={{environment name}}&& node app.js
 ```
 
 If an input file is not provided or cannot be read, the application will proceed to use console input, where you can enter your commands.
@@ -60,4 +64,4 @@ If you don’t have the Jasmine module in your node environment, run the followi
 npm install -g jasmine
 ```
 
-You can also choose different test data found under the `test` folder.
+You can also choose different test data found under the `test` folder. This application was tested on both `macOS` and `Windows`.
